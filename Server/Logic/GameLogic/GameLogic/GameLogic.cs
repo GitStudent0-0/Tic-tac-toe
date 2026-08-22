@@ -52,6 +52,15 @@ namespace GameLogic
       }
     }
 
+    public int[] getBoard() // Возвращение доски в виде линейного массива
+    {
+      int[] boardLine = new int[N * N];
+      for (int i = 0; i < N; i++)
+        for ( int j = 0; j < N; j++)
+          boardLine[i*N+j] = board[i, j];
+      return boardLine;
+    }
+
     public bool makeMove(int playerId, int cell) // Совершение шага игроком. Клетки по порядку 0...8
     {
       bool move = false;

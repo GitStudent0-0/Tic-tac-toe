@@ -1,0 +1,6 @@
+@TicTacToeApi_HostAddress = http://localhost:5250
+
+GET {{TicTacToeApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
