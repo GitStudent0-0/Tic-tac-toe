@@ -4,25 +4,34 @@ using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace TicTacToeApi.Services
 {
+  public class RoomState
+  {
+    public TicTacToeGame gameRoom { get; set; }
+    public string? player1Id { get; set; }
+    public string? player2Id { get; set; }
+    public bool isFull => player2Id != null;
+  }
   public class GameManager
   {
-    private readonly ConcurrentDictionary<string, TicTacToeGame> _games = new(); // Словать для всех отдельных партий
+    private readonly ConcurrentDictionary<string, RoomState> _rooms = new(); // Словарь для всех отдельныч комнат (игр)
 
-    public TicTacToeGame createGame(string gameId, Player p1, Player p2, int startId) // Создание игры с передачей игроков и айди начинающего игрока
+    public RoomState createRoom(string gameId, string playerName, string connectId) // Создание игровой комнаты с передачей игроков и айди начинающего игрока
     {
-      var game = new TicTacToeGame(p1, p2, startId);
-      _games[gameId] = game;
-      return game;
+      var p1 = new Player { name = playerName, sign = 1 };
+      var game = new TicTacToeGame(p1, new Player(), startId: 1);
+      var room = new RoomState { gameRoom = game, player1Id = connectId };
+      _rooms[gameId] = room;
+      return room;
     }
 
-    public bool tryGetGame(string gameId, out TicTacToeGame game) // Получение игры
+    public bool tryGetGame(string gameId, out RoomState room) // Получение игры
     {
-      return _games.TryGetValue(gameId, out game);
+      return _rooms.TryGetValue(gameId, out room);
     }
 
     public void removeGame(string gameId) // Удаление игры
     {
-      _games.TryRemove(gameId, out _);
+      _rooms.TryRemove(gameId, out _);
     }
   }
 }

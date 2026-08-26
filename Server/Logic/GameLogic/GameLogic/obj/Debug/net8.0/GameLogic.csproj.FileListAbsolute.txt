@@ -23,3 +23,4 @@ C:\Users\Vredina\Desktop\Проекты\Tic-tac-toe\Server\Logic\GameLogic\GameL
 C:\Users\Vredina\Desktop\Проекты\Tic-tac-toe\Server\Logic\GameLogic\GameLogic\obj\Debug\net8.0\GameLogic.pdb
 C:\Users\Vredina\Desktop\Проекты\Tic-tac-toe\Server\Logic\GameLogic\GameLogic\obj\Debug\net8.0\GameLogic.genruntimeconfig.cache
 C:\Users\Vredina\Desktop\Проекты\Tic-tac-toe\Server\Logic\GameLogic\GameLogic\obj\Debug\net8.0\ref\GameLogic.dll
+C:\Users\Vredina\Desktop\Проекты\Tic-tac-toe\Server\Logic\GameLogic\GameLogic\obj\Debug\net8.0\GameLogic.sourcelink.json

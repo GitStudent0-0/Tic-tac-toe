@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TicTacToeApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c570f207968e0f3f0ffecd09a007eedf6cb8cda")]
 [assembly: System.Reflection.AssemblyProductAttribute("TicTacToeApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TicTacToeApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

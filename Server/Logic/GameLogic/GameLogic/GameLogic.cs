@@ -1,8 +1,7 @@
 ﻿public struct Player
 {
   public string name { get; set; }
-  public int id { get; set; }
-  public int sing { get; set; }
+  public int sign { get; set; }
 }
 
 namespace GameLogic
@@ -52,6 +51,12 @@ namespace GameLogic
       }
     }
 
+    public void setSecondPlayer(Player p2) // Установка второго игрока
+    {
+      _player2 = p2;
+      currentPlayerId = 1;
+    }
+
     public int[] getBoard() // Возвращение доски в виде линейного массива
     {
       int[] boardLine = new int[N * N];
@@ -61,23 +66,24 @@ namespace GameLogic
       return boardLine;
     }
 
-    public bool makeMove(int playerId, int cell) // Совершение шага игроком. Клетки по порядку 0...8
+    public bool makeMove(int playerSign, int cell) // Совершение шага игроком. Клетки по порядку 0...8
     {
       bool move = false;
-      if (playerId == currentPlayerId && cell >= 0 && cell <= 8)
+      int currentSign = (currentPlayerId == 1) ? 1 : 2;
+      if (currentSign == currentPlayerId && cell >= 0 && cell <= 8)
       {
         int row = cell / N;
         int col = cell % N;
-        int curSing = (playerId == _player1.id) ? _player1.sing : _player2.sing;
+        int curSign = playerSign;
         if (board[row, col] == -1)
         { 
-          board[row, col] = curSing;
-          if (playerId == _player1.id)
+          board[row, col] = curSign;
+          if (curSign == 1)
             q1.Enqueue(cell);
           else
             q2.Enqueue(cell);
           gameExpansion();
-          currentPlayerId = (playerId == _player1.id) ? _player2.id : _player1.id;
+          currentPlayerId = (currentPlayerId == 1) ? 2 : 1;
           move = true;
         }
       }
