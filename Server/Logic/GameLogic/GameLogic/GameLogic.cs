@@ -51,6 +51,9 @@ namespace GameLogic
       }
     }
 
+    public string getPlayer1Name() => _player1.name;
+    public string getPlayer2Name() => _player2.name;
+
     public void setSecondPlayer(Player p2) // Установка второго игрока
     {
       _player2 = p2;

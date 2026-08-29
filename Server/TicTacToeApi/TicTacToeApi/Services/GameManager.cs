@@ -24,12 +24,20 @@ namespace TicTacToeApi.Services
       return room;
     }
 
-    public bool tryGetGame(string gameId, out RoomState room) // Получение игры
+    public List<string> GetRoomsByConnectionId(string connectionId) // Поиск комнат
+    {
+      return _rooms
+          .Where(kvp => kvp.Value.player1Id == connectionId || kvp.Value.player2Id == connectionId)
+          .Select(kvp => kvp.Key)
+          .ToList();
+    }
+
+    public bool tryGetGame(string gameId, out RoomState room) // Получение комнаты
     {
       return _rooms.TryGetValue(gameId, out room);
     }
 
-    public void removeGame(string gameId) // Удаление игры
+    public void removeGame(string gameId) // Удаление комнаты
     {
       _rooms.TryRemove(gameId, out _);
     }
